@@ -1,70 +1,242 @@
-# Getting Started with Create React App
+# React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Create react app.
+* Diseñar un nuevo proyecto utilizando la libreria de 
+React
 
-## Available Scripts
+```sh
+    npx create-react-app + nombre
+```
+* Al trabajar con create react app todas las componentes que utilizaremos las insertaremos dentro de la hoja app.js
 
-In the project directory, you can run:
+## Componentes
+```js
+    import React from "react";
+    function Navbar() {
 
-### `npm start`
+    return (
+        Contenido
+    )
+    
+    }
+    export default Navbar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Props
+* En app.js
+```js
+    import React from "react";
+    function Navbar() {
 
-### `npm test`
+    return (
+        <Navbar name='Paso la props con el valor que quiero asignar '/>
+    )
+    
+    }
+    export default Navbar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+* Esta seria mi componente
 
-### `npm run build`
+```js
+    import React from "react";
+    function Navbar(props) {
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    return (
+        <h1>
+            Hola {props.name}
+        </h1>
+    )
+    
+    }
+    export default Navbar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* sirve para pasar información entre las componentes de mi aplicación 
 
-### `npm run eject`
+## Pasar variables y objetos
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```js
+    
+    function App (){
+        const userName = 'Matias';
+        
+        return()
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    <saludar name={userName}/>
+    }
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## //Objetos// 
+* Todo esto es una props por ende en donde se encuentra el componente deberemos ingresar a cada valor con props.user.nombre y asi sucesivamente. En este caso utilizaremos mucho codigo pero es una manera en la que se podria realizar
+```js
+    
+    function App (){
+        const user = {
+            nombre:'Matias',
+            apellido:'Mendoza',
+            edad:'20'
+        };
+        return()
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    <saludar userInfo ={user}/>
+    }
+```
+## Estilos 
 
-## Learn More
+* Importo los estilos en app.js
+* Si utilizo una imagen la debo importar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+    import imagen from './imagen/img.jpg';
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Como utilizar el .map
+* Necesitare dos hojas , una donde poner el objeto y recorrerlo con el .map y otra la cual sera la encargada de mostrar cada valor pasado como una props.
 
-### Code Splitting
+### Ejemplo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Hoja donde creo el objeto 
 
-### Analyzing the Bundle Size
+```js
+    function Skills() {
+    const [lenguajes, setLenguajes] = useState(
+        [
+            {
+                nombre: 'Html',
+                descripcion: 'Hacer el esqueleto de la pagina'
+            },
+            {
+                nombre: 'Css',
+                descripcion: 'Dar estilos a la pagina'
+            }
+        ])
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    return (
+        <div>
+            <section className="skills">
+                <h2>Mis skills tecnicas</h2>
+                {lenguajes.map((lenguajes) => {
+                    return (
+                        <article>
+                            <Lenguajes nombre={lenguajes.nombre} descripcion={lenguajes.descripcion}></Lenguajes>
+                        </article>
+                    )
+                })}
 
-### Making a Progressive Web App
+            </section>
+        </div>
+    )
+}
+```
+* Hoja donde le asigno las props y lo utlizo para mostrar cada uno de mis datos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```js
+import React from 'react'
 
-### Advanced Configuration
+export const Lenguajes = (props) => {
+    return (
+        <div>
+            <h3>{props.nombre}</h3>
+            <p>{props.descripcion}</p>
+        </div>
+    )
+}
+```
+----
+# Estructura basica para levantar un Backend rapido con Json.server en React 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![imagen](https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/064fc70f-5df3-4333-b9d4-f6abe2f946de/react-wp-app8.png)
 
-### Deployment
+----------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Link de Json.server
 
-### `npm run build` fails to minify
+( https://www.npmjs.com/package/json-server?activeTab=readme )
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Instalación de Json Server con npm
+===========================
+```sh
+    npm install -g json-server
+```
+* Creamos un archivo aparte para un Hook personalizado en una carpeta llamada Hocks para trabajar con nuestra información
+
+* Se nos creara con la instalación un archivo de tipo json llamado db.json
+## Iniciamos el Back 
+
+```sh
+    json-server --watch db.json
+```
+-----------------
+## Estructura de nuestro Hock
+* Archivo llamado useFormulario.js.
+
+```js
+    import { useState } from "react"
+
+    export const useFormulario = (estadoInicial = {}) => {
+
+    const [values, setValues] = useState(estadoInicial)
+
+    const handleInputChange = ({ target }) => {
+        setValues({
+            ...values,
+            [target.name]: target.value
+
+
+        })
+    }
+    return [values, handleInputChange]
+}
+```
+-------------
+## Estructura del lado donde se encuentra mi componente de fomulario 
+
+```js
+    const [values, handleInputChange] = useFormulario({
+        nombre: '',
+        email: '',
+        comentario: ''
+    });
+
+    const { nombre, email, comentario } = values
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        alert('Datos guardados exitosamente');
+
+    fetch('http://localhost:3000/informations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(values)
+    });
+    .then(respuesta => {
+        console.log(respuesta)
+    });
+
+    };
+```
+--------
+## Estructura de los inputs
+
+```js
+<form onSubmit={handleSubmit}>
+    
+<input onChange={handleInputChange} value={nombre} name='nombre' id='nombre' type='text' placeholder='Nombre'></input>
+    
+<input onChange={handleInputChange} value={email} name='email' id='email' type='email' placeholder='Correo Electronico'></input>
+    
+<input onChange={handleInputChange} value={comentario} name='comentario' id='comentario' type='text' placeholder='Deja tu consulta aqui'>
+</input>
+    
+<button>Enviar</button>
+
+```
+
+### Markdown
+
+* Sintaxis de Markdown para implementarlo en el README.md
+
+( https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/064fc70f-5df3-4333-b9d4-f6abe2f946de/react-wp-app8.png )
