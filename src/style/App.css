@@ -1,0 +1,177 @@
+@font-face {
+  font-family: monserrat-semibold;
+  src: url(fonts/Montserrat-SemiBold.otf);
+}
+
+@font-face {
+  font-family: monserrat-extrabold;
+  src: url(fonts/Montserrat-ExtraBold.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background: var(--colorFondo);
+  color: var(--color-Letra-Fondos);
+}
+
+:root {
+  --letraTitulos: monserrat-extrabold;
+  --letraTexto: monserrat-semibold;
+  --colorFondo: #592B9D;
+  --color-Letra-Fondos: #FFFF;
+  --fondoNav: #6734B4;
+}
+
+/*Seccion navegacion*/
+.elementUl li a {
+  color: var(--color-Letra-Fondos);
+  text-decoration: none;
+  text-shadow: 0px 3px 0px #000;
+}
+
+.elementUl a:hover {
+  opacity: 0.5;
+}
+
+/*SECCION DEL ENCABEZADO--------------*/
+.encabezado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10rem;
+  font-family: var(--letraTitulos);
+  margin-top: 8rem;
+  text-shadow: 0px 5px 0px black;
+  text-align: center;
+  letter-spacing: 0.5rem;
+}
+
+.encabezado img {
+  background: var(--color-Letra-Fondos);
+  border: 0px solid var(--color-Letra-Fondos);
+  height: 500px;
+  width: 500px;
+  box-shadow: 0px 0px 2px black;
+  animation: ondulacion 5s ease infinite alternate;
+}
+
+@keyframes ondulacion {
+  0% {
+    border-radius: 181px 93px 180px 69px;
+    -moz-border-radius: 181px 93px 180px 69px;
+    -webkit-border-radius: 181px 93px 180px 69px;
+    border: 0px solid var(--color-Letra-Fondos);
+  }
+
+  50% {
+    border-radius: 83px 182px 71px 164px;
+    -moz-border-radius: 83px 182px 71px 164px;
+    -webkit-border-radius: 83px 182px 71px 164px;
+    border: 0px solid var(--color-Letra-Fondos);
+  }
+
+  100% {
+    border-radius: 200px 97px 200px 58px;
+    -moz-border-radius: 200px 97px 200px 58px;
+    -webkit-border-radius: 200px 97px 200px 58px;
+    border: 0px solid var(--color-Letra-Fondos);
+  }
+}
+
+.encabezado button {
+  margin-top: 2.5rem;
+  width: 280px;
+  height: 50px;
+  border-radius: 2rem;
+  border: none;
+  font-family: var(--letraTexto);
+  font-size: 1rem;
+}
+
+.encabezado button:hover {
+  background: lightgray;
+  cursor: pointer;
+}
+
+/*SECCION DE SKILLS TECNICAS ----------------*/
+.skills {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.skills h2 {
+  margin-top: 2rem;
+  font-family: var(--letraTitulos);
+  font-size: 3rem;
+  text-shadow: 0px 5px 0px black;
+}
+
+.lenguajes {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 2rem;
+  font-family: var(--letraTexto);
+  line-height: 2rem;
+}
+
+.lenguajes article {
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 2px #000;
+  background: var(--colorFondo);
+  width: 25%;
+  margin-bottom: 2rem;
+}
+
+.lenguajes article:hover {
+  box-shadow: 0px 0px 5px #000;
+}
+
+/*SECCION DE FORMULARIO---------------*/
+
+.box-form {
+  padding: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box-form a {
+  color: #000;
+}
+
+.box-form input {
+  height: 2rem;
+  border-radius: 2rem;
+  border: transparent;
+  text-align: center;
+}
+
+@media screen and (max-width:500px) {
+  .skills h2 {
+    text-align: center;
+  }
+
+  .lenguajes article {
+    width: 50%;
+  }
+}

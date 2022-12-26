@@ -1,0 +1,16 @@
+{
+  "informations": [
+    {
+      "nombre": "Silvia Andrea",
+      "email": "SilviaA@gmail.com",
+      "comentario": "Hola me gustaria contratarte.",
+      "id": 1
+    },
+    {
+      "nombre": "Matias",
+      "email": "mendoza.matias.ezequiel.01@gmail.com",
+      "comentario": "Puesto IT en CoderHouse",
+      "id": 2
+    }
+  ]
+}
